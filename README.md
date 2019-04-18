@@ -1,2 +1,2 @@
 # angular-app
-This is an angular application that is part of an angular course i am taking
+This angular application is part of an angular coure I am taking
