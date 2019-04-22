@@ -45,9 +45,10 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
     MDBBootstrapModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
-      { path: 'prodcuts', component: ProductsComponent },
+      { path: 'products', component: ProductsComponent },
       { path: 'shopping-cart', component: ShoppingCartComponent },
       { path: 'checkout', component: CheckoutComponent },
+      { path: 'my/orders', component: MyOrdersComponent },
       { path: 'order-success', component: OrderSuccessComponent },
       { path: 'login', component: LoginComponent },
       { path: 'admin/products', component: AdminProductsComponent},
