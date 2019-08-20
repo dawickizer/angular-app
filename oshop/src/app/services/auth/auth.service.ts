@@ -24,5 +24,4 @@ export class AuthService {
     return this.afAuth.authState;
   }
 
-
 }
