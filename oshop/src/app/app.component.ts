@@ -4,7 +4,7 @@ import { AuthService } from './services/auth/auth.service';
 import { Observable } from 'rxjs';
 
 import { User } from './models/user/user.model'
-
+import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,14 +12,16 @@ import { User } from './models/user/user.model'
 })
 export class AppComponent {
   title = 'oshop';
+  user: User = new User();
 
   constructor(private userService: UserService, private auth: AuthService) {
+
     auth.currentUser().subscribe(user => {
       if (user) {
         userService.save(user);
         //userService.delete(user);
         userService.get(user).subscribe(user => {
-          console.log(user);
+          this.user = user
         });
       }
     });
