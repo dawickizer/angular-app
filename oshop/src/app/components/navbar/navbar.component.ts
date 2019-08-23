@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
+import { UserService } from '../../services/user/user.service';
+import { User } from '../../models/user/user.model';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -9,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  constructor(private auth: AuthService, private userService: UserService) { }
 
   ngOnInit() {}
 

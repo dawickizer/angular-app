@@ -20,7 +20,7 @@
       </li>
 
       <!-- Dropdown -->
-      <li *ngIf="(this.auth.currentUser() | async) as user" class="nav-item dropdown" dropdown>
+      <li *ngIf="(this.auth.loggedIn() | async) as user" class="nav-item dropdown" dropdown>
         <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
           {{ user?.displayName }}<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">

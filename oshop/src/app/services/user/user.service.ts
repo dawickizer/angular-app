@@ -14,9 +14,19 @@ export class UserService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  // will create new user if user does not exist, or will destroy and recreate current user with new fields
-  save(user: firebase.User) {
+  // update a user in the db. Will destroy and recreate user
+  update(user: User) {
+    // this.db.object('/users/' + user.uid).set({
+    //   name: user.displayName,
+    //   email: user.email,
+    //   isAdmin: true
+    // });
+  }
+
+  // Create a new user
+  create(user: firebase.User) {
     this.db.object('/users/' + user.uid).set({
+      id: user.uid,
       name: user.displayName,
       email: user.email,
       isAdmin: true
@@ -24,14 +34,13 @@ export class UserService {
   }
 
   // delete a user
-  delete(user: firebase.User) {
-    this.db.object('/users/' + user.uid).remove();
+  delete(id: string) {
+    this.db.object('/users/' + id).remove();
   }
 
   // get a user
-  get(user: firebase.User): Observable<User> {
-
-    return this.db.object('/users/' + user.uid).valueChanges().pipe(map(user => user as User));
+  get(id: string): Observable<User> {
+    return this.db.object('/users/' + id).valueChanges().pipe(map(user => user as User));
   }
 
   // get all users

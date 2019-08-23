@@ -16,11 +16,11 @@ export class AppComponent {
 
   constructor(private userService: UserService, private auth: AuthService) {
 
-    auth.currentUser().subscribe(user => {
+    auth.loggedIn().subscribe(user => {
       if (user) {
-        userService.save(user);
-        //userService.delete(user);
-        userService.get(user).subscribe(user => {
+        userService.create(user);
+        //userService.delete(user.uid);
+        userService.get(user.uid).subscribe(user => {
           this.user = user
         });
       }
