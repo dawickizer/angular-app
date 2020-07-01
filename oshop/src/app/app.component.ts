@@ -19,9 +19,13 @@ export class AppComponent {
     auth.currentUser().subscribe(user => {
       if (user) {
         userService.save(user);
-        //userService.delete(user);
+
         userService.get(user).subscribe(user => {
           this.user = user
+        });
+
+        userService.getAll().subscribe(users => {
+          console.log(users);
         });
       }
     });

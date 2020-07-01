@@ -17,6 +17,7 @@ export class UserService {
   // will create new user if user does not exist, or will destroy and recreate current user with new fields
   save(user: firebase.User) {
     this.db.object('/users/' + user.uid).set({
+      uid: user.uid,
       name: user.displayName,
       email: user.email,
       isAdmin: true
@@ -28,10 +29,21 @@ export class UserService {
     this.db.object('/users/' + user.uid).remove();
   }
 
+  // delete a user by UID
+  deleteByUID(uid: String) {
+    this.db.object('/users/' + uid).remove();
+  }
+
   // get a user
   get(user: firebase.User): Observable<User> {
 
     return this.db.object('/users/' + user.uid).valueChanges().pipe(map(user => user as User));
+  }
+
+  // get a user by UID
+  getByUID(uid: String): Observable<User> {
+
+    return this.db.object('/users/' + uid).valueChanges().pipe(map(user => user as User));
   }
 
   // get all users
