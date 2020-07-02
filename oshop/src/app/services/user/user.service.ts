@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase';
 
+// models
 import { User } from '../../models/user/user.model';
 
 @Injectable({

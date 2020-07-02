@@ -23,10 +23,10 @@ export class AppComponent {
         userService.get(user).subscribe(user => {
           this.user = user
         });
-
-        userService.getAll().subscribe(users => {
-          console.log(users);
-        });
+        // 
+        // userService.getAll().subscribe(users => {
+        //   console.log(users);
+        // });
       }
     });
   }

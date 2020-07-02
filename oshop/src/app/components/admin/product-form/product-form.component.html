@@ -1,7 +1,7 @@
 <form>
   <div class="form-group">
     <label for="title">Title</label>
-    <input id="title" type="text" class="form-control">
+    <input id="title" type="text" class="form-control" ([ngModel])="product.title">
   </div>
 
   <div class="form-group">
@@ -24,4 +24,7 @@
     <label for="imageUrl">Image URL</label>
     <input id="imageUrl" type="text" class="form-control">
   </div>
+
+  <a class="btn btn-primary" routerLink="/admin/products/">Cancel</a>
+  <a class="btn btn-primary" routerLink="/admin/products/" (click)="save()">Save</a>
 </form>

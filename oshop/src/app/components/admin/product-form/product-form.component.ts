@@ -1,4 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+
+// models
+import { Product } from '../../../models/product/product.model';
+
+// services
+import { ProductService } from '../../../services/product/product.service';
+
 
 @Component({
   selector: 'app-product-form',
@@ -7,9 +16,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductFormComponent implements OnInit {
 
-  constructor() { }
+  product: Product;
+
+  constructor(private router: Router, private productService: ProductService) { }
 
   ngOnInit() {
+    this.product = new Product();
+    console.log(this.product);
+  }
+
+  save() {
+    console.log(this.product);
   }
 
 }
